@@ -11,7 +11,7 @@ if (isset($_POST['Login'])) {
 
     if (!empty($username) && !empty($password)) {
         // Prepared statement to check user
-        $stmt = $conn->prepare("SELECT username, password, email, role FROM users WHERE username = ?");
+        $stmt = $conn->prepare("SELECT password, role FROM users WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();

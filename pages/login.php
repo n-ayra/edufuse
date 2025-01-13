@@ -21,6 +21,7 @@
         <span class="icon-close"><ion-icon name="close"></ion-icon></span>
         <div class="form-box Login">
             <h2>Login</h2>
+            
             <!-- Form -->
             <form action="../database/login_dtb.php" method="post">
                 <div class="input-box">
