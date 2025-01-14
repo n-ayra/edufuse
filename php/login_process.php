@@ -3,7 +3,7 @@
 <body>
 <?php
 session_start();
-require_once "../database/connection.php";
+require_once "../php/connection.php";
 
 if (isset($_POST['Login'])) {
     $username = trim($_POST['username']);

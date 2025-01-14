@@ -1,65 +1,35 @@
-document.getElementById('uploadButton').addEventListener('click', async () => {
-    const formData = new FormData();
-    const fileInput = document.getElementById('fileUpload');
-    const deckName = document.getElementById('deck-name').value.trim();
-    const subject = document.getElementById('subject').value.trim();
+document.getElementById('uploadButton').addEventListener('click', function () {
+    const form = document.getElementById('uploadForm');
+    const formData = new FormData(form);
 
-    // Validate input fields
-    if (fileInput.files.length === 0) {
-        alert("Please select a file to upload!");
-        return;
-    }
-
-    if (!deckName) {
-        alert("Please provide a deck name!");
-        return;
-    }
-
-    if (!subject) {
-        alert("Please provide a subject!");
-        return;
-    }
-
-    // Append data to form
-    formData.append('file', fileInput.files[0]);
-    formData.append('deckName', deckName);
-    formData.append('subject', subject);
-
-    try {
-        // Send data to the backend
-        const response = await fetch('php/deck_process.php', {
-            method: 'POST',
-            body: formData
-        });
-
-        // Parse response
-        const data = await response.json();
-
-        // Handle response
-        const flashcardsDiv = document.getElementById('flashcards');
-        flashcardsDiv.innerHTML = ''; // Clear previous flashcards
-
-        if (data.error) {
-            flashcardsDiv.innerHTML = `<p>Error: ${data.error}</p>`;
-        } else {
-            data.flashcards.forEach(card => {
-                const cardElement = document.createElement('div');
-                cardElement.classList.add('flashcard');
-                cardElement.innerHTML = `
-                    <div class="question">Q: ${card.question}</div>
-                    <div class="answer">A: ${card.answer}</div>
-                `;
-
-                // Flip interaction
-                cardElement.addEventListener('click', () => {
-                    cardElement.classList.toggle('flipped');
-                });
-
-                flashcardsDiv.appendChild(cardElement);
-            });
-        }
-    } catch (err) {
-        console.error('Error:', err);
-        alert('Something went wrong. Please try again.');
-    }
+    fetch('../php/uploadFile.php', {
+        method: 'POST',
+        body: formData,
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                displayUploadedFile(data.file); // Call function to display the uploaded file
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
 });
+
+function displayUploadedFile(file) {
+    const flashcardsDiv = document.getElementById('flashcards');
+
+    // Create a new card for the uploaded file
+    const fileCard = document.createElement('div');
+    fileCard.classList.add('flashcard');
+
+    fileCard.innerHTML = `
+        <p><strong>Deck Name:</strong> ${file.deckName}</p>
+        <p><strong>Subject:</strong> ${file.subject}</p>
+        <p><strong>File Name:</strong> <a href="${file.filePath}" target="_blank">${file.fileName}</a></p>
+    `;
+
+    flashcardsDiv.appendChild(fileCard); // Append the card to the flashcards section
+}

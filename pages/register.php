@@ -3,7 +3,7 @@
 session_start();
 
 // Include the database connection
-require_once '../database/connection.php';
+require_once '../php/connection.php';
 
 // Determine the step
 $step = 1;
