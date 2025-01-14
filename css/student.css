@@ -164,3 +164,93 @@ h1 {
 .deck-options {
 	cursor: pointer;
 }
+
+/* Button for Upload and Select Course */
+
+.upload-file, .select-course {
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.upload-file:hover, .select-course:hover {
+    background-color: black;
+    color: white;
+}
+
+
+/* Form Group Styling (Input Field)s*/
+.form-group {
+    margin-top: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-group input:focus {
+    border-color: black;
+    outline: none;
+}
+
+/* Generate Deck Button */
+.generate-deck {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.generate-deck:hover {
+    background-color: #333;
+}
+
+/*generated flashcards*/
+
+.flashcard {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard p {
+    margin: 5px 0;
+}
+
+.flashcard a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.flashcard a:hover {
+    text-decoration: underline;
+}
+

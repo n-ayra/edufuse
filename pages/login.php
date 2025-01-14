@@ -21,9 +21,9 @@
         <span class="icon-close"><ion-icon name="close"></ion-icon></span>
         <div class="form-box Login">
             <h2>Login</h2>
-            
+
             <!-- Form -->
-            <form action="../database/login_dtb.php" method="post">
+            <form action="../php/login_process.php" method="post">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
                     <input type="text" id="username" name="username" required>
