@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduFuse - My Courses</title>
-    <link rel="stylesheet" href="../css/homepage.css">
+<?php include '../include/headergen.html'?>
+    <link rel="stylesheet" href="../css/teacher.css">
 </head>
+
 <body>
-    <header class="navbar">
-        <div class="logo">EduFuse</div>
-        <nav class="menu">
-            <a href="#">Home</a>
-            <a href="#">Dashboard</a>
-            <a href="#" class="active">My courses</a>
-        </nav>
-        <div class="user-section">
-            <span class="username">username</span>
-            <span class="profile-icon">
-                <img src="profile-icon.png" alt="Profile" />
-            </span>
-        </div>
-    </header>
+<?php include '../include/navbarTeacher.html' ?>
 
     <main class="courses-container">
         <section class="courses-header">
