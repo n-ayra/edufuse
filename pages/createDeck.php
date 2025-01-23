@@ -14,30 +14,37 @@
 
     <div class="deck-creation">
         <form id="uploadForm" enctype="multipart/form-data" method="POST" action="../php/uploadFile.php">
+            <!-- File Upload Section -->
             <div class="upload-options">
-                <label for="fileUpload" class="upload-file">Upload File</label>
-                <input type="file" id="fileUpload" name="fileUpload" accept=".txt,.pdf,.doc,.docx" hidden>
-                <span>or</span>
-                <button type="button" class="select-course">Select from Course</button>
+                <div class="file-upload-container">
+                    <!-- Hidden file input -->
+                    <input type="file" id="fileUpload" name="fileUpload" accept=".txt,.pdf,.doc,.docx" required>
+                    
+                    <!-- Custom file upload button -->
+                    <label for="fileUpload" class="custom-upload-button">Choose File</label>
+                    
+                    <!-- Display file name -->
+                    <p id="fileNameDisplay" class="file-name">No file chosen</p>
+                </div>
             </div>
+            <!-- Deck Name and Subject Inputs -->
             <div class="form-group">
                 <label for="deck-name">Deck Name</label>
-                <input type="text" id="deck-name" name="deckName" placeholder="Enter deck name">
+                <input type="text" id="deck-name" name="deckName" placeholder="Enter deck name" required>
             </div>
             <div class="form-group">
                 <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Enter name of subject">
+                <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
             </div>
-            <button type="button" id="uploadButton" class="generate-deck">Generate Deck</button>
+            <button type="submit" class="generate-deck">Generate Deck</button>
         </form>
-
     </div>
 
     <div id="result">
-    <h2>Generated Flashcards</h2>
-    <div id="flashcards">
+        <h2>Generated Flashcards</h2>
+        <div id="flashcards"></div>
     </div>
 </div>
-</div>
+
 </body>
 </html>

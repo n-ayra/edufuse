@@ -166,7 +166,6 @@ h1 {
 }
 
 /* Button for Upload and Select Course */
-
 .upload-file, .select-course {
     padding: 10px 20px;
     background-color: white;
@@ -184,8 +183,63 @@ h1 {
     color: white;
 }
 
+.upload-options {
+    display: flex;
+    justify-content: center; 
+    gap: 10px; 
+    margin: 20px 0; 
+    text-align: center; 
+}
 
-/* Form Group Styling (Input Field)s*/
+.upload-options span {
+    align-self: center; 
+}
+
+.upload-file, .select-course {
+    padding: 10px 20px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.upload-file:hover, .select-course:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Custom File Upload Button */
+.file-upload-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-upload-button {
+    display: inline-block;
+    background-color: #282c30;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-upload-button:hover {
+    background-color: #48525d;
+}
+
+.file-name {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333;
+}
+
 .form-group {
     margin-top: 20px;
 }
@@ -210,7 +264,6 @@ h1 {
     outline: none;
 }
 
-/* Generate Deck Button */
 .generate-deck {
     display: block;
     width: 100%;
@@ -253,5 +306,3 @@ h1 {
 .flashcard a:hover {
     text-decoration: underline;
 }
-
-
